@@ -8,8 +8,8 @@ Gem::Specification.new do |spec|
   spec.version       = Razin::VERSION
   spec.authors       = ["Donnie Tognazzini"]
   spec.email         = ["donnie.tognazzini@appfolio.com"]
-  spec.description   = %q{TODO: Write a gem description}
-  spec.summary       = %q{TODO: Write a gem summary}
+  spec.description   = "Tame dem sour grapes with Razin."
+  spec.summary       = "Tame dem sour grapes with Razin."
   spec.homepage      = ""
   spec.license       = "MIT"
 
