@@ -8,13 +8,12 @@
                                                  \________________/                ---tame dem sour grapes with Razin
 </pre>
 
-# Razin 
-
+# Razin
 Declare exception contracts in your Ruby code to express intent and aid in identifying programming errors. Stop tracing through methods to discover what a method could raise - start using exception contracts and just know.
 
 ## Why Use It?
 
-Exception handling in Ruby is a sour experience; much is left up to the developer. Razin DRYs up all those sour grapes using a simple, easy to understand pattern for expressing exception contracts. Using Razin, you can quickly reason about what goes on inside all of those methods you're calling; you'll know which exceptions are intended to be raised - everything else is a programming error. 
+Exception handling in Ruby is a sour experience; much is left up to the developer. Razin DRYs up all those sour grapes using a simple, lightweight, easy to understand pattern for expressing exception contracts. Using Razin, you can quickly reason about what goes on inside all of those methods you're calling; you'll know which exceptions are intended to be raised - everything else is a programming error. 
 
 
 ## Installation
