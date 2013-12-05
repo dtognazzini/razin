@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    razin (0.0.1)
+    razin (1.0.0)
       nesty (~> 1.0)
 
 GEM
