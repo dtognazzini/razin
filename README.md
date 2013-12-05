@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/dtognazzini/razin.png?branch=master)](https://travis-ci.org/dtognazzini/razin)
+
 <pre>
   
              ..`````v'''~''''~.
