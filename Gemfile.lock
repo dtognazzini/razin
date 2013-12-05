@@ -2,10 +2,12 @@ PATH
   remote: .
   specs:
     razin (0.0.1)
+      nesty (~> 1.0)
 
 GEM
   remote: https://rubygems.org/
   specs:
+    nesty (1.0.2)
     rake (10.1.0)
 
 PLATFORMS
