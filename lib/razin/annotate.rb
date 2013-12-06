@@ -3,11 +3,7 @@ module Razin
     def self.extended(target_class)
       target_class.class_eval do
         class << self
-          def razin_raises
-            @razin_raises
-          end
-          
-          attr_writer :razin_raises
+          attr_accessor :razin_raises
           
           if RUBY_VERSION >= "2.0.0"
             def razin_module
