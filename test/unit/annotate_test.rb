@@ -22,6 +22,16 @@ module Razin
         end
       end
     end
+    
+    def test_instance_method__wrapped_contracts
+      subclass = Class.new(TestClass1) do
+        alias_method :old_mortar, :mortar
+        def mortar(*args, &block)
+          old_mortar(*args, &block)
+        rescue
+        end
+      end
+    end
         
     def test_instance_method_raises__allowed
       raised = assert_raise Error1 do
