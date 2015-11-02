@@ -4,4 +4,6 @@ module Razin
   
   class UnexpectedError < ProgrammingError
   end
+  class Whatever
+  end
 end
