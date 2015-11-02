@@ -14,3 +14,4 @@ end
 
 require "razin/version"
 require "razin/exceptions"
+require "razin/annotate"

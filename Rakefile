@@ -9,3 +9,5 @@ namespace :test do
   end
 end
 
+task :default => "test:units"
+

@@ -24,33 +24,31 @@ Exception handling in Ruby is a sour experience; much is left up to the develope
 Express exception contracts with ease...
 
 ```ruby
+  extend Razin::Annotate
+
   class GiftingError              < Nesty::NestedStandardError; end
   class GiftingServiceUnavailable < GiftingError; end
   class GiftingBookError          < GiftingError; end
   
+  raises GiftingBookError, GiftingServiceUnavailable
   def gift_book(book_name)
-    Razin.raises(GiftingBookError, GiftingServiceUnavailable) do
-      begin
-      
-        book = ExternalLibraryService.checkout_book(book_name)
+    book = ExternalLibraryService.checkout_book(book_name)
 
-        wrapped_book = WrappingService.wrap(book)
+    wrapped_book = WrappingService.wrap(book)
 
-        MailingService.mail(wrapped_book)
+    MailingService.mail(wrapped_book)
 
-        StatisticsService.record_gift_of(book)
+    StatisticsService.record_gift_of(book)
 
-        book    
-    
-      rescue ExternalLibraryService::BookCheckoutFailed
-        raise GiftingBookError
-      rescue ExternalLibraryService::CheckoutFailed, WrappingService::WrappingError, 
-             MailingService::MailingError
-        raise GiftingServiceUnavailable
-      rescue StatisticsService::Error
-        # ignore everything having to do with recording statistics
-      end
-    end
+    book    
+
+  rescue ExternalLibraryService::BookCheckoutFailed
+    raise GiftingBookError
+  rescue ExternalLibraryService::CheckoutFailed, WrappingService::WrappingError, 
+         MailingService::MailingError
+    raise GiftingServiceUnavailable
+  rescue StatisticsService::Error
+    # ignore everything having to do with recording statistics
   end
 ```
 
@@ -266,20 +264,19 @@ Here is the gift_book() rewritten to use Razin:
 ```ruby
   # same exception classes as above
   
+  extend Razin::Annotate
+  
+  raises GiftingBookError, GiftingServiceUnavailable
   def gift_book(book_name)
-    Razin.raises(GiftingBookError, GiftingServiceUnavailable) do
-      begin
-        # same as above
-    
-      rescue ExternalLibraryService::BookCheckoutFailed
-        raise GiftingBookError
-      rescue ExternalLibraryService::CheckoutFailed, WrappingService::WrappingError, 
-             MailingService::MailingError
-        raise GiftingServiceUnavailable
-      rescue StatisticsService::Error
-        # ignore everything having to do with recording statistics
-      end
-    end
+    # same as above
+
+  rescue ExternalLibraryService::BookCheckoutFailed
+    raise GiftingBookError
+  rescue ExternalLibraryService::CheckoutFailed, WrappingService::WrappingError, 
+         MailingService::MailingError
+    raise GiftingServiceUnavailable
+  rescue StatisticsService::Error
+    # ignore everything having to do with recording statistics
   end
 ```
 
